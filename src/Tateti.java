@@ -123,4 +123,12 @@ public class Tateti
 			System.out.println(" ");
 		}
 	}
+
+	public void limpiar() {
+		for (int f = 0;f < Tablero.length;f++) {
+			for (int c = 0;c < Tablero[f].length;c++) {
+				Tablero[f][c] = "-";
+			}
+		}
+	}
 }

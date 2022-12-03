@@ -21,13 +21,14 @@ USE `tateti` ;
 -- Table `tateti`.`historial`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `tateti`.`historial` (
-  `id_resultado` INT NOT NULL,
+  `id_resultado` INT NOT NULL AUTO_INCREMENT,
   `fecha_comienzo` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `fecha_fin` TIMESTAMP NOT NULL,
   `jugador_nombre` VARCHAR(45) NOT NULL,
   `ganador` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_resultado`))
 ENGINE = InnoDB
+AUTO_INCREMENT = 21
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
 
@@ -51,23 +52,11 @@ CREATE TABLE IF NOT EXISTS `tateti`.`mensajeidioma` (
   `id_mensaje` INT NOT NULL,
   `id_idioma` INT NOT NULL,
   `descripcion` VARCHAR(250) NOT NULL,
-  PRIMARY KEY (`id_mensaje`),
+  PRIMARY KEY (`id_mensaje`, `id_idioma`),
   INDEX `id_idx` (`id_idioma` ASC) VISIBLE,
   CONSTRAINT `id`
     FOREIGN KEY (`id_idioma`)
     REFERENCES `tateti`.`idioma` (`id`))
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8mb4
-COLLATE = utf8mb4_0900_ai_ci;
-
-
--- -----------------------------------------------------
--- Table `tateti`.`usuario`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `tateti`.`usuario` (
-  `id_usuario` INT NOT NULL,
-  `nombre` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id_usuario`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_0900_ai_ci;
