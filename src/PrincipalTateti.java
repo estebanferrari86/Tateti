@@ -51,9 +51,10 @@ public class PrincipalTateti
 		LocalDateTime finPartida = null;
 		t1.generarTablero();
 		t1.mostrarTablero();
+		System.out.println(bd.imprimirMensaje(idioma, 3));
 		while (gan == false && j2.getJugada() < 9) {
 			j1.jugar();
-			//t1.mostrarTablero();
+			t1.mostrarTablero();
 			if(!(gan=t1.hayTateti())) 
 			{
 				j2.jugarMaquina();
@@ -75,10 +76,10 @@ public class PrincipalTateti
 	private static void imprimirBienvenida(ConectaBD bd, int idioma) {
 		int mensaje1 = 1;
 		int mensaje2 = 2;
-		int mensaje3 = 3;
+		//int mensaje3 = 3;
 		System.out.println(bd.imprimirMensaje(idioma, mensaje1));
 		System.out.println(bd.imprimirMensaje(idioma, mensaje2));
-		System.out.println(bd.imprimirMensaje(idioma, mensaje3));
+		//System.out.println(bd.imprimirMensaje(idioma, mensaje3));
 	}
 	
 	private static String solicitarNombre(ConectaBD bd, int idioma, Scanner lector) {
